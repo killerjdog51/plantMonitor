@@ -21,6 +21,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="PlantAlmanac\succulent.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PlantAlmanac\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="plantMonitor.py" />
     <Compile Include="Sensors\sensor.py">
       <SubType>Code</SubType>

@@ -17,7 +17,6 @@ class sensorBase(object):
             val = 0.0
         return val
 
-    @property
     def displaySensorValue(self):
         print("{}".format(self.getSensorValue))
 
@@ -34,12 +33,12 @@ class soilSensor(sensorBase):
 
     @property
     def displayValueType(self):
-        moistureLevel = int(round(self.getSensorValue*1000))
-        if(moistureLevel < 1000 and moistureLevel > 750):
+        __moistureLevel = int(round(self.getSensorValue*1000))
+        if(__moistureLevel < 1000 and __moistureLevel > 750):
             print("Too much Water!!")
-        elif(moistureLevel < 750 and moistureLevel > 300):
+        elif(__moistureLevel < 750 and __moistureLevel > 300):
             print("Soil is moist")
-        elif(moistureLevel < 300 and moistureLevel > 0):
+        elif(__moistureLevel < 300 and __moistureLevel > 0):
             print("Soil is dry")
         else:
             print("Soil is too dry!!")
@@ -52,8 +51,8 @@ class sunlightSensor(sensorBase):
 
     @property
     def calculateLuxValue(self):
-        logLux = float((int(self.getSensorValue) * 1024 / 5.0))
-        return pow(10, logLux)
+        __logLux = float((int(self.getSensorValue) * 1024 / 5.0))
+        return pow(10, __logLux)
 
     @property
     def displayLuxValue(self):
@@ -61,28 +60,28 @@ class sunlightSensor(sensorBase):
 
     @property
     def displayLuxType(self):
-        luxLevel = self.calculateLuxValue
-        if(luxLevel < 0.001):
+        __luxLevel = self.calculateLuxValue
+        if(__luxLevel < 0.001):
             print("Cloudy Night")
-        elif(luxLevel >= 0.001 and luxLevel < 0.02):
+        elif(__luxLevel >= 0.001 and __luxLevel < 0.02):
             print("Starlight Night")
-        elif(luxLevel >= 0.02 and luxLevel < 1):
+        elif(__luxLevel >= 0.02 and __luxLevel < 1):
             print("Moonlight Night")
-        elif(luxLevel >= 1 and luxLevel < 10):
+        elif(__luxLevel >= 1 and __luxLevel < 10):
             print("Twilight")
-        elif(luxLevel >= 50 and luxLevel < 100):
+        elif(__luxLevel >= 50 and __luxLevel < 100):
             print("House Lighting")
-        elif(luxLevel >= 100 and luxLevel < 250):
+        elif(__luxLevel >= 100 and __luxLevel < 250):
             print("Very Cloudy")
-        elif(luxLevel >= 250 and luxLevel < 500):
+        elif(__luxLevel >= 250 and __luxLevel < 500):
             print("Sunrise/Sunset")
-        elif(luxLevel >= 1000 and luxLevel < 2000):
+        elif(__luxLevel >= 1000 and __luxLevel < 2000):
             print("Cloudy")
-        elif(luxLevel >= 2000 and luxLevel < 10000):
+        elif(__luxLevel >= 2000 and __luxLevel < 10000):
             print("Partly Cloudy")
-        elif(luxLevel >=10000 and luxLevel < 25000):
+        elif(__luxLevel >=10000 and __luxLevel < 25000):
             print("Partial Sunlight (shade)")
-        elif(luxLevel >= 25000 and luxLevel < 32000):
+        elif(__luxLevel >= 25000 and __luxLevel < 32000):
             print("Full Sunlight")
-        elif(luxLevel >= 32000 and luxLevel < 130000):
+        elif(__luxLevel >= 32000 and __luxLevel < 130000):
             print("Direct Sunlight")
